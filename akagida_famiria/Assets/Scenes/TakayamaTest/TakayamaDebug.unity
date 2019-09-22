@@ -1539,5 +1539,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 608570933756094085, guid: 0b528abc87695e44da746986094076ba,
         type: 3}
+    - target: {fileID: 4090463941206496619, guid: 6246864c3810ae74691f97f6e8ae3e59,
+        type: 3}
+      propertyPath: yuri
+      value: 
+      objectReference: {fileID: 6063717054953326883, guid: ed5c76a0038ba9b43af4b343e41a31c2,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6246864c3810ae74691f97f6e8ae3e59, type: 3}

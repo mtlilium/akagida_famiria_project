@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     private GameManagement gm;
 
     public GameObject yuri;
+    bool yuriFlag;
 
     IEnumerator Start()
     {
@@ -28,6 +29,11 @@ public class Player : MonoBehaviour
             int rnd = Random.Range(0, 999999999)%20;
             GameObject obj = Instantiate(Playerbullet[rnd], transform.localPosition, transform.localRotation);
             obj.transform.SetParent(spawner.transform, false);
+
+            if (moveSpeed <= 100 && yuriFlag)
+            {
+                HelpYuri();
+            }
             // 1.00秒待つ
             yield return new WaitForSeconds(1.00f);
         }
@@ -48,12 +54,14 @@ public class Player : MonoBehaviour
             Move("RIGHT");
         }
 
-        if(moveSpeed <= 100)
-        {
-            Invoke("HelpYuri", 2);
-        }
     }
 
+    void HelpYuri()
+    {
+        int xx = Random.Range(-600, 601);
+        GameObject obj = Instantiate(yuri, new Vector3(xx, 600, 0),Quaternion.identity);
+        obj.transform.SetParent(spawner.transform, false);
+    }
 
     // 機体の移動
     void Move(string v)
@@ -83,12 +91,24 @@ public class Player : MonoBehaviour
             Destroy(c.gameObject);
         }
 
+        if(layerName == "Yuri")
+        {
+            moveSpeed = 300;
+            yuriFlag = false;
+            Destroy(c.gameObject);
+            Debug.Log("YURI!!");
+        }
+
         if(c.tag == "Wairo")
         {
             moveSpeed -= 50;
             if(moveSpeed <= 50)
             {
                 moveSpeed = 50;
+            }
+            if(moveSpeed <= 100 && !yuriFlag)
+            {
+                yuriFlag = true;
             }
             Destroy(c.gameObject);
         }
@@ -105,6 +125,7 @@ public class Player : MonoBehaviour
     void InitPlayer()
     {
         moveSpeed = 300.0f;
+        yuriFlag = true;
         gm = GameObject.Find("GameManager").GetComponent<GameManagement>();
         this.transform.localPosition = new Vector2(0, -380);
     }
