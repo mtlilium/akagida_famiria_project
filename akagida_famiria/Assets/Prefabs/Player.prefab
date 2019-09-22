@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 4090463941206496618}
   - component: {fileID: 4090463941206496617}
   - component: {fileID: 4090463941206496619}
-  m_Layer: 5
+  - component: {fileID: 2107254137}
+  m_Layer: 12
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,7 +67,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: bbda25589653da14088ab2cb7e971e78, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b32dd8291e8871547a0411f23cc552c6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -87,3 +88,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e739bfa0b0bd3f438a620ae2fdbf267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Playerbullet:
+  - {fileID: 4262510951944877546, guid: 5a50ce28cfeb8f44eb247edc1a0a32a0, type: 3}
+  - {fileID: 3137009702324224400, guid: a50cd6f0296f4bb4e8fbecc663351d62, type: 3}
+  - {fileID: 8770343263396582696, guid: 895474d61d381ee4a8ee18b2938b85b6, type: 3}
+  - {fileID: 4183402557333871432, guid: 4f24b37ff657efb4e82688742e749d99, type: 3}
+  - {fileID: 8750617040901328533, guid: 154227711c3c5c640b20c76654007aeb, type: 3}
+  - {fileID: 450730693423890430, guid: 298eda3a25feff448b86eae13e875f6c, type: 3}
+  - {fileID: 608570933756094085, guid: 0b528abc87695e44da746986094076ba, type: 3}
+  - {fileID: 3264266434186767008, guid: 4d3995c201063034798016c7e3a34a6f, type: 3}
+  - {fileID: 2035342518382128191, guid: e64f1fd92f7693a43a4be3b41507a4e4, type: 3}
+  - {fileID: 1653308695748081385, guid: 72870f316272a1f468695509fe784f82, type: 3}
+  - {fileID: 4739655155971142607, guid: 3bf56955fd4bc054c918c10144ba3d08, type: 3}
+  - {fileID: 7356830692657084129, guid: 9e0e8a641ef2f01439e35ac8f298c2d2, type: 3}
+  - {fileID: 6392275723874118009, guid: 9fc3d29b6b2f0be4fb1613808a4dc19b, type: 3}
+  - {fileID: 8559123818785910153, guid: 070bf79b59646af4ebf16004a2ada77e, type: 3}
+  - {fileID: 4739655155971142607, guid: 3bf56955fd4bc054c918c10144ba3d08, type: 3}
+  - {fileID: 2035342518382128191, guid: e64f1fd92f7693a43a4be3b41507a4e4, type: 3}
+  - {fileID: 8770343263396582696, guid: 895474d61d381ee4a8ee18b2938b85b6, type: 3}
+  - {fileID: 4262510951944877546, guid: 5a50ce28cfeb8f44eb247edc1a0a32a0, type: 3}
+  - {fileID: 4262510951944877546, guid: 5a50ce28cfeb8f44eb247edc1a0a32a0, type: 3}
+  - {fileID: 608570933756094085, guid: 0b528abc87695e44da746986094076ba, type: 3}
+  spawner: {fileID: 0}
+  yuri: {fileID: 6063717054953326883, guid: ed5c76a0038ba9b43af4b343e41a31c2, type: 3}
+--- !u!61 &2107254137
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4090463941206496615}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 100, y: 100}
+  m_EdgeRadius: 0

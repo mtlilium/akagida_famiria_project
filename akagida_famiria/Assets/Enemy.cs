@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
 
     private GameManagement gm;
-    public float maxHP = 100f;
+    public float maxHP;
     private float enemyHP;
 
     //public GameObject[] Playerbullet;
@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
 
     private Player player;
 
+    private bool isDead;
 
     IEnumerator Start()
     {
@@ -71,9 +72,20 @@ public class Enemy : MonoBehaviour
         player = GameObject.Find("Player").GetComponent<Player>();
         this.transform.localPosition = new Vector2(0, 200);
 
+        maxHP = GameManagement.stage * 30 + (int)(GameManagement.stage / 3) * 9; //30,60,99
         enemyHP = maxHP;
+        Debug.Log("ENEMY HP:" + maxHP);
+        isDead = false;
     }
 
+    public bool Defeat()
+    {
+        return isDead;
+    }
+    public int GetMaxHP()
+    {
+        return (int)maxHP;
+    }
     //衝突時のロジック
     void OnTriggerEnter2D(Collider2D c)
     {
@@ -86,7 +98,11 @@ public class Enemy : MonoBehaviour
             //PlayerがBulletに当たった時のロジック
             gm.CalScore(-0.2f);
             enemyHP -= player.GetAttackPoint();
-
+            if(enemyHP <= 0.0f)
+            {
+                enemyHP = 0.0f;
+                isDead = true;
+            }
             gm.ChangeEnemyBar(enemyHP / maxHP);
             //当たった玉を消す
             Destroy(c.gameObject);

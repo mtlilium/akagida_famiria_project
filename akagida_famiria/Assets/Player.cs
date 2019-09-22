@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     float moveSpeed;
     float xLimit = 640.0f;
 
-    private float attackPoint = 5.0f;
+    private float attackPoint = 112.0f;
 
     // PlayerBulletプレハブ
     public GameObject[] Playerbullet;
@@ -45,6 +45,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Mathf.Approximately(Time.timeScale, 0f))
+        {
+            return;
+        }
+
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             Move("LEFT");
