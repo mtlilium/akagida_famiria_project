@@ -21,5 +21,10 @@ public class PlayerBullet : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("MIKAMI!!!!");
+    }
 }
 
