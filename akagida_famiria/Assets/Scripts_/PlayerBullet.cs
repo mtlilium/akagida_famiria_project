@@ -18,7 +18,10 @@ public class PlayerBullet : MonoBehaviour
 
         if(this.transform.localPosition.y >= 1200)
         {
-            Destroy(this.gameObject);
+            Destroy(this.gameObject); //PlayerBullet
+        }else if(this.transform.localPosition.y <= -600)
+        {
+            Destroy(this.gameObject); //EnemyBullet
         }
     }
 
