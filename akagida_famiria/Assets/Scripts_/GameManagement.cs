@@ -2,41 +2,71 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManagement : MonoBehaviour
 {
-    public static float score;
+    public static float score=8.0f;
+    public static int stage = 1;
     private GameObject player;
+    private GameObject enemy;
     Text scoreText;
 
     //敵
     public static float enemyBulletSpeed = -10f;
     private GameObject enemyHPBar;
     private GameObject enemyTensionBar;
+    public GameObject enemyHPText;
+    public Sprite[] enemyBarSprites;
+    public GameObject enemyBarFrame;
 
     private bool burstFlag;
+
+    //PauseUI
+    public GameObject pauseUI;
 
     // Start is called before the first frame update
     void Start()
     {
-        score = 8.0f;
+        Time.timeScale = 1f;
         player = GameObject.Find("Player");
+
+        //STAGEによって場合分けしてEnemyをインスタンス化
+        enemy = GameObject.Find("MikamiTEKI");
+
         scoreText = GameObject.Find("TextScore").GetComponent<Text>();
 
         enemyHPBar = GameObject.Find("Healthbar");
         enemyTensionBar = GameObject.Find("Manabar");
         enemyHPBar.GetComponent<Image>().fillAmount = 1;
         enemyTensionBar.GetComponent<Image>().fillAmount = 0;
+        enemyHPText.GetComponent<Text>().text = enemy.GetComponent<Enemy>().GetMaxHP().ToString();
+        enemyBarFrame.GetComponent<Image>().sprite = enemyBarSprites[Mathf.Min(2,stage-1)];
 
         burstFlag = true;
+
+        Debug.Log("STAGE:" + stage);
     }
 
     // Update is called once per frame
     void Update()
     {
         ShowScore();
+        if (enemy.GetComponent<Enemy>().Defeat() && !pauseUI.gameObject.activeSelf)
+        {
+            pauseUI.SetActive(true);
+            Time.timeScale = 0f;
+        }
     }
 
+    public void NextStage()
+    {
+        pauseUI.SetActive(false);
+        
+
+        stage++;
+        SceneManager.LoadScene("TakayamaDebug");
+    }
     public void CalScore(float num)
     {
         score += num;
@@ -49,6 +79,11 @@ public class GameManagement : MonoBehaviour
         }
     }
 
+    public float GetScore()
+    {
+        return score;
+    }
+
     void ShowScore()
     {
         scoreText.text = "消費税\n" + Mathf.FloorToInt(score).ToString() +" %";
@@ -57,7 +92,7 @@ public class GameManagement : MonoBehaviour
     public void ChangeEnemyBar(float value)
     {
         enemyHPBar.GetComponent<Image>().fillAmount = value;
-        enemyTensionBar.GetComponent<Image>().fillAmount += 0.05f;
+        enemyTensionBar.GetComponent<Image>().fillAmount += 0.08f;
 
         if(enemyTensionBar.GetComponent<Image>().fillAmount>=1 && burstFlag)
         {

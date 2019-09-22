@@ -40,6 +40,10 @@ public class EnemyBullet : MonoBehaviour
 
     void Update()
     {
+        if (Mathf.Approximately(Time.timeScale, 0f))
+        {
+            return;
+        }
         MoveBullet();
     }
 

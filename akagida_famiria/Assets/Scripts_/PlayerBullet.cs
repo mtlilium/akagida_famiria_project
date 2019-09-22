@@ -15,6 +15,10 @@ public class PlayerBullet : MonoBehaviour
 
     void Update()
     {
+        if (Mathf.Approximately(Time.timeScale, 0f))
+        {
+            return;
+        }
         MoveBullet();
     }
 

@@ -17,6 +17,10 @@ public class MoveWairo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Mathf.Approximately(Time.timeScale, 0f))
+        {
+            return;
+        }
         MoveMoney();
         if (Mathf.Abs(this.transform.localPosition.y) >= 1000)
         {
