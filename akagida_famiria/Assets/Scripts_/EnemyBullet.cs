@@ -20,9 +20,22 @@ public class EnemyBullet : MonoBehaviour
         speed = GameManagement.enemyBulletSpeed;
     }
 
+
+
+    private Vector3 verocityDirection;
+
+    public Vector2 direction = new Vector2(0.5f, 0.5f);
+
     void Start()
     {
+        angle = getAngles() + defAngle;
+        var direction = GetDirection(angle);
+        verocityDirection = direction * speed;
+        var bulletAngles = transform.localEulerAngles;
+        bulletAngles.z = angle - 90;
+        transform.localEulerAngles = bulletAngles;
 
+        Destroy(gameObject, 3);
     }
 
     void Update()
@@ -32,12 +45,46 @@ public class EnemyBullet : MonoBehaviour
 
     void MoveBullet()
     {
-        rb.velocity = transform.up.normalized * speed;
+        //変更
+        //rb.velocity = transform.up.normalized * speed;
+        transform.localPosition += verocityDirection;
 
         if (this.transform.localPosition.y <= -600)
         {
             Destroy(this.gameObject);
         }
     }
+
+    public static float angles = 0f;
+    public static float defAngle = 0f;
+
+
+    private float getAngles()
+    {
+        if (angles == 135f)
+        {
+            angles = 45f;
+        }
+        else if (angles == 90f)
+        {
+            angles = 135f;
+        }
+        else
+        {
+            angles = 90f;
+        }
+        return angles;
+    }
+
+    private float angle;
+
+    public Vector3 GetDirection(float angle)
+    {
+        return new Vector3(
+            Mathf.Cos(angle * Mathf.Deg2Rad),
+            Mathf.Sin(angle * Mathf.Deg2Rad),
+            0);
+    }
+
 
 }
