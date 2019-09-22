@@ -14,11 +14,11 @@ TagManager:
   - UI
   - 
   - 
+  - PlayerBullet
   - 
   - 
   - 
-  - 
-  - 
+  - Player
   - 
   - 
   - 
@@ -41,4 +41,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Back
+    uniqueID: 3609416967
+    locked: 0
+  - name: Game
+    uniqueID: 1047442545
     locked: 0

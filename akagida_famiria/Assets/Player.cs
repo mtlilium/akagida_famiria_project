@@ -8,16 +8,19 @@ public class Player : MonoBehaviour
     float xLimit = 800.0f;
 
     // PlayerBulletプレハブ
-    public GameObject Playerbullet;
+    public GameObject[] Playerbullet;
+    public GameObject spawner;
 
     IEnumerator Start()
     {
         InitPlayer();
-
+        yield return new WaitForSeconds(1.00f);
         while (true)
         {
             // 弾をプレイヤーと同じ位置/角度で作成
-            Instantiate(Playerbullet, transform.position, transform.rotation);
+            int rnd = Random.Range(0, 3);
+            GameObject obj = Instantiate(Playerbullet[rnd], transform.position, transform.rotation);
+            obj.transform.SetParent(this.transform.transform,false);
             // 1.00秒待つ
             yield return new WaitForSeconds(1.00f);
         }

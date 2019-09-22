@@ -1,12 +1,25 @@
 ﻿using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class PlayerBullet : MonoBehaviour
 {
-    public int speed = 10;
-
+    public float speed = 20;
     void Start()
     {
+    }
+
+    void Update()
+    {
+        MoveBullet();
+    }
+
+    void MoveBullet()
+    {
         GetComponent<Rigidbody2D>().velocity = transform.up.normalized * speed;
+
+        if(this.transform.localPosition.y >= 1200)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
 
