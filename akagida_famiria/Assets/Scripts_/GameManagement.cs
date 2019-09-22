@@ -44,7 +44,7 @@ public class GameManagement : MonoBehaviour
         enemyHPBar.GetComponent<Image>().fillAmount = 1;
         enemyTensionBar.GetComponent<Image>().fillAmount = 0;
         enemyHPText.GetComponent<Text>().text = enemy.GetComponent<Enemy>().GetMaxHP().ToString();
-        enemyBarFrame.GetComponent<Image>().sprite = enemyBarSprites[Mathf.Min(2,stage-1)];
+        enemyBarFrame.GetComponent<Image>().sprite = enemyBarSprites[stage-1];
 
         burstFlag = true;
 
@@ -80,11 +80,11 @@ public class GameManagement : MonoBehaviour
         stage++;
         if (stage < 4)
         {
-            SceneManager.LoadScene("TakayamaDebug");
+            SceneManager.LoadSceneAsync("TakayamaDebug");
         }
         else
         {
-            SceneManager.LoadScene("ResultScene");
+            SceneManager.LoadSceneAsync("ResultScene");
         }
     }
     public void CalScore(float num)

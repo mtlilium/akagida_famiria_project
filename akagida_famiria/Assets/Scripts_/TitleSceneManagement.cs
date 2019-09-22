@@ -6,10 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class TitleSceneManagement : MonoBehaviour
 {
+    private bool flag;
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1f;
+
         AudioManager.Instance.PlayBGM("Title");
+        flag = true;
     }
 
     // Update is called once per frame
@@ -20,12 +24,15 @@ public class TitleSceneManagement : MonoBehaviour
 
     public void GoToGameScene()
     {
-        AudioManager.Instance.AttachBGMSource.Stop();
-        AudioManager.Instance.PlaySE("TitleCall");
-        Invoke("LoadScene", 3f);
+        if (flag){
+            flag = false;
+            AudioManager.Instance.AttachBGMSource.Stop();
+            AudioManager.Instance.PlaySE("TitleCall");
+            Invoke("LoadArasujiScene", 3f);
+        }
     }
-    void LoadScene()
+    void LoadArasujiScene()
     {
-        SceneManager.LoadScene("ArasujiScene");
+        SceneManager.LoadSceneAsync("ArasujiScene");
     }
 }

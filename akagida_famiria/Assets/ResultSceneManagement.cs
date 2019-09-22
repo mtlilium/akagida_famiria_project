@@ -36,12 +36,13 @@ public class ResultSceneManagement : MonoBehaviour
         GameManagement.stage = 1;
         GameManagement.score = 8.0f;
         Destroy(AudioManager.Instance.gameObject);
-        SceneManager.LoadScene("TitleScene");
+        SceneManager.LoadSceneAsync("TitleScene");
     }
 
     void LoadMainScene()
     {
+        Time.timeScale = 1f;
         Destroy(AudioManager.Instance.gameObject);
-        SceneManager.LoadScene("TitleScene");
+        SceneManager.LoadSceneAsync("TitleScene");
     }
 }

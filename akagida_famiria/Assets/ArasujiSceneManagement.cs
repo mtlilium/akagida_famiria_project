@@ -42,6 +42,6 @@ public class ArasujiSceneManagement : MonoBehaviour
 
     void LoadGameScene()
     {
-        SceneManager.LoadScene("TakayamaDebug");
+        SceneManager.LoadSceneAsync("TakayamaDebug");
     }
 }

@@ -32,25 +32,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Shadow
     - UnityEngine.UI.Text
   sceneClasses:
-    Assets/Scenes/SampleScene.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 83
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
     Assets/Scenes/TakayamaTest/ArasujiScene.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -65,17 +46,17 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9326}
+      Script: {instanceID: 9328}
     - Class: 114
-      Script: {instanceID: 9332}
+      Script: {instanceID: 9334}
     - Class: 114
-      Script: {instanceID: 9338}
+      Script: {instanceID: 9340}
     - Class: 114
-      Script: {instanceID: 9346}
+      Script: {instanceID: 9348}
     - Class: 114
-      Script: {instanceID: 9382}
+      Script: {instanceID: 9384}
     - Class: 114
-      Script: {instanceID: 10164}
+      Script: {instanceID: 10166}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -106,21 +87,21 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9324}
+      Script: {instanceID: 9250}
     - Class: 114
       Script: {instanceID: 9326}
     - Class: 114
-      Script: {instanceID: 9332}
+      Script: {instanceID: 9328}
     - Class: 114
-      Script: {instanceID: 9338}
+      Script: {instanceID: 9334}
     - Class: 114
-      Script: {instanceID: 9346}
+      Script: {instanceID: 9340}
     - Class: 114
-      Script: {instanceID: 9382}
+      Script: {instanceID: 9348}
     - Class: 114
       Script: {instanceID: 9384}
     - Class: 114
-      Script: {instanceID: 18302}
+      Script: {instanceID: 9386}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -157,39 +138,39 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9324}
-    - Class: 114
       Script: {instanceID: 9326}
     - Class: 114
-      Script: {instanceID: 9332}
+      Script: {instanceID: 9328}
     - Class: 114
-      Script: {instanceID: 9338}
+      Script: {instanceID: 9334}
     - Class: 114
-      Script: {instanceID: 9346}
+      Script: {instanceID: 9340}
     - Class: 114
-      Script: {instanceID: 9354}
+      Script: {instanceID: 9348}
     - Class: 114
-      Script: {instanceID: 9378}
+      Script: {instanceID: 9356}
     - Class: 114
-      Script: {instanceID: 9382}
+      Script: {instanceID: 9380}
     - Class: 114
       Script: {instanceID: 9384}
     - Class: 114
-      Script: {instanceID: 9434}
+      Script: {instanceID: 9386}
     - Class: 114
       Script: {instanceID: 9436}
     - Class: 114
-      Script: {instanceID: 9890}
+      Script: {instanceID: 9438}
     - Class: 114
-      Script: {instanceID: 9924}
+      Script: {instanceID: 9892}
     - Class: 114
-      Script: {instanceID: 10080}
+      Script: {instanceID: 9926}
     - Class: 114
-      Script: {instanceID: 10162}
+      Script: {instanceID: 10082}
     - Class: 114
-      Script: {instanceID: 10336}
+      Script: {instanceID: 10164}
     - Class: 114
-      Script: {instanceID: 10550}
+      Script: {instanceID: 10338}
+    - Class: 114
+      Script: {instanceID: 10552}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -217,24 +198,26 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 82
       Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9324}
-    - Class: 114
       Script: {instanceID: 9326}
     - Class: 114
-      Script: {instanceID: 9332}
+      Script: {instanceID: 9328}
     - Class: 114
-      Script: {instanceID: 9338}
+      Script: {instanceID: 9334}
     - Class: 114
-      Script: {instanceID: 9346}
+      Script: {instanceID: 9340}
     - Class: 114
-      Script: {instanceID: 9382}
+      Script: {instanceID: 9348}
     - Class: 114
-      Script: {instanceID: 9578}
+      Script: {instanceID: 9384}
     - Class: 114
-      Script: {instanceID: 10246}
+      Script: {instanceID: 9580}
+    - Class: 114
+      Script: {instanceID: 10248}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -266,6 +249,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_Dropdown
+  - hash:
+      serializedVersion: 2
+      Hash: d58dc70f3a2342bfeec829317482d078
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ResultSceneManagement
   - hash:
       serializedVersion: 2
       Hash: e7a73f5f78ba6445195ec23b74a1ce2d
@@ -956,17 +945,10 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: d58dc70f3a2342bfeec829317482d078
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ResultSceneManagement
   platform: 19
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
   - Assets/Scenes/TakayamaTest/TitleScene.unity
   - Assets/Scenes/TakayamaTest/ArasujiScene.unity
   - Assets/Scenes/TakayamaTest/TakayamaDebug.unity
   - Assets/Scenes/TakayamaTest/ResultScene.unity
-  playerPath: C:/Program Files/akagida_famiria.exe
+  playerPath: C:/Users/Yusei/Documents/akagida_famiria.exe
