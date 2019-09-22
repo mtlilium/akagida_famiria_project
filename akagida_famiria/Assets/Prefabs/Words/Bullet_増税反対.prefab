@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8770343263396582702}
   - component: {fileID: 8100192623702959105}
   - component: {fileID: 966511847835434680}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: "Bullet_\u5897\u7A0E\u53CD\u5BFE"
   m_TagString: Word
   m_Icon: {fileID: 0}

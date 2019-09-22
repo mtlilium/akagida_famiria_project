@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 
     // PlayerBulletプレハブ
     public GameObject[] Playerbullet;
-
+    public GameObject spawner;
 
     IEnumerator Start()
     {
@@ -19,8 +19,8 @@ public class Player : MonoBehaviour
         {
             // 弾をプレイヤーと同じ位置/角度で作成
             int rnd = Random.Range(0, 3);
-            GameObject obj = Instantiate(Playerbullet[rnd], transform.position, transform.rotation,this.transform);
-            obj.transform.SetParent(this.transform,false);
+            GameObject obj = Instantiate(Playerbullet[rnd], transform.position, transform.rotation);
+            obj.transform.SetParent(this.transform.transform,false);
             // 1.00秒待つ
             yield return new WaitForSeconds(1.00f);
         }
