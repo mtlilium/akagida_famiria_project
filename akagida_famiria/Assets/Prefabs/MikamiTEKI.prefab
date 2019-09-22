@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2104241136008677345}
   - component: {fileID: 2104241136008677344}
   - component: {fileID: 2104241136008677374}
+  - component: {fileID: 193696276}
   m_Layer: 13
   m_Name: MikamiTEKI
   m_TagString: Untagged
@@ -101,3 +102,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 100, y: 100}
   m_EdgeRadius: 0
+--- !u!114 &193696276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104241136008677346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c169db7726f477c44a8ba922505a30ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 100
+  Enemybullet: {fileID: 763272394121417574, guid: 468102b250ee7774783bc54617e6f77c,
+    type: 3}
+  spawner: {fileID: 0}
+  Yukari: {fileID: 763272394121417574, guid: 468102b250ee7774783bc54617e6f77c, type: 3}
+  Kokkai: {fileID: 763272394121417574, guid: 468102b250ee7774783bc54617e6f77c, type: 3}

@@ -267,6 +267,8 @@ MonoBehaviour:
   Enemybullet: {fileID: 763272394121417574, guid: 468102b250ee7774783bc54617e6f77c,
     type: 3}
   spawner: {fileID: 947113898}
+  Yukari: {fileID: 763272394121417574, guid: 468102b250ee7774783bc54617e6f77c, type: 3}
+  Kokkai: {fileID: 763272394121417574, guid: 468102b250ee7774783bc54617e6f77c, type: 3}
 --- !u!1 &207274447
 GameObject:
   m_ObjectHideFlags: 0
