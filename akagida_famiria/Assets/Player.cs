@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     float moveSpeed = 300.0f;
-    float xLimit = 800.0f;
+    float xLimit = 640.0f;
 
     // PlayerBulletプレハブ
     public GameObject[] Playerbullet;
