@@ -20,6 +20,6 @@ public class TitleSceneManagement : MonoBehaviour
 
     public void GoToGameScene()
     {
-        SceneManager.LoadScene("TakayamaDebug");
+        SceneManager.LoadScene("ArasujiScene");
     }
 }

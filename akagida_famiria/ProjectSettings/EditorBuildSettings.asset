@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TakayamaTest/TitleScene.unity
     guid: 1055140f879e3284ab530ce1612e1287
   - enabled: 1
+    path: Assets/Scenes/TakayamaTest/ArasujiScene.unity
+    guid: c5a070487a7014847b3fe72bec9b4b89
+  - enabled: 1
     path: Assets/Scenes/TakayamaTest/TakayamaDebug.unity
     guid: 297b8bea936fd7e44b575952998bda99
   m_configObjects: {}
