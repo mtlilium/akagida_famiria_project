@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    float moveSpeed = 150.0f;
+    float moveSpeed = 300.0f;
+    float xLimit = 800.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -28,11 +29,11 @@ public class Player : MonoBehaviour
     {
         if (v == "LEFT")
         {
-            this.transform.localPosition = new Vector2(this.transform.localPosition.x - Time.deltaTime * moveSpeed, this.transform.localPosition.y);
+            this.transform.localPosition = new Vector2(Mathf.Max(-1*xLimit,this.transform.localPosition.x - Time.deltaTime * moveSpeed), this.transform.localPosition.y);
         }
         else
         {
-            this.transform.localPosition = new Vector2(this.transform.localPosition.x + Time.deltaTime * moveSpeed, this.transform.localPosition.y);
+            this.transform.localPosition = new Vector2(Mathf.Min(xLimit, this.transform.localPosition.x + Time.deltaTime * moveSpeed), this.transform.localPosition.y);
         }
     }
 
