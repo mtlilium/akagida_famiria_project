@@ -32,6 +32,8 @@ public class GameManagement : MonoBehaviour
         Time.timeScale = 1f;
         player = GameObject.Find("Player");
 
+        AudioManager.Instance.PlayBGM("BGM"+stage.ToString());
+
         //STAGEによって場合分けしてEnemyをインスタンス化
         enemy = GameObject.Find("MikamiTEKI");
 
@@ -59,6 +61,8 @@ public class GameManagement : MonoBehaviour
         ShowScore();
         if (enemy.GetComponent<Enemy>().Defeat() && !pauseUI.gameObject.activeSelf)
         {
+            AudioManager.Instance.AttachBGMSource.Stop();
+            AudioManager.Instance.PlaySE("Children");
             pauseUI.SetActive(true);
             if (stage >= 3)
             {
@@ -71,8 +75,8 @@ public class GameManagement : MonoBehaviour
     public void NextStage()
     {
         pauseUI.SetActive(false);
-        
 
+        AudioManager.Instance.AttachSESource.Stop();
         stage++;
         if (stage < 4)
         {
