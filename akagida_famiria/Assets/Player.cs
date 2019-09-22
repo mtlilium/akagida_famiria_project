@@ -7,12 +7,25 @@ public class Player : MonoBehaviour
     float moveSpeed = 300.0f;
     float xLimit = 800.0f;
 
-    // Start is called before the first frame update
-    void Start()
+    // PlayerBulletプレハブ
+    public GameObject Playerbullet;
+
+    IEnumerator Start()
     {
         InitPlayer();
+
+        while (true)
+        {
+            // 弾をプレイヤーと同じ位置/角度で作成
+            Instantiate(Playerbullet, transform.position, transform.rotation);
+            // 1.00秒待つ
+            yield return new WaitForSeconds(1.00f);
+        }
     }
 
+    // Start is called before the first frame update
+    
+    
     // Update is called once per frame
     void Update()
     {
