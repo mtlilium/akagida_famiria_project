@@ -102,7 +102,7 @@ public class Enemy : MonoBehaviour
     public GameObject Yukari;
     public GameObject Kokkai;
 
-    public GameObject Player;
+    //public GameObject Player;
 
     //public GameObject[] Playerbullet;
     //ここに弾幕として扱いたいプレハブを設定する
@@ -165,7 +165,7 @@ public class Enemy : MonoBehaviour
 
     float GetRad()
     {
-        float rad = Mathf.Atan2(this.transform.localPosition.x - Player.transform.localPosition.x, transform.localPosition.y - Player.transform.localPosition.y);
+        float rad = Mathf.Atan2(this.transform.localPosition.x - player.transform.localPosition.x, transform.localPosition.y - player.transform.localPosition.y);
         return -rad * Mathf.Rad2Deg;
     }
 
