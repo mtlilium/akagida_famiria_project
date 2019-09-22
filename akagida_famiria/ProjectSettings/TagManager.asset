@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Word
   - EnemyBullet
+  - Wairo
+  - Yuri
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - 
   - Player
   - Enemy
-  - 
+  - Yuri
   - 
   - 
   - 
@@ -48,4 +50,7 @@ TagManager:
     locked: 0
   - name: Game
     uniqueID: 1047442545
+    locked: 0
+  - name: UI
+    uniqueID: 3950966969
     locked: 0

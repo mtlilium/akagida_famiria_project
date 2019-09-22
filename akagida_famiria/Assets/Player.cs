@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    float moveSpeed = 300.0f;
+    float moveSpeed;
     float xLimit = 640.0f;
+
+    private float attackPoint = 5.0f;
 
     // PlayerBulletプレハブ
     public GameObject[] Playerbullet;
+    //スポナー
     public GameObject spawner;
+
+    private GameManagement gm;
+
+    public GameObject yuri;
+    bool yuriFlag;
 
     IEnumerator Start()
     {
@@ -18,9 +26,14 @@ public class Player : MonoBehaviour
         while (true)
         {
             // 弾をプレイヤーと同じ位置/角度で作成
-            int rnd = Random.Range(0, 3);
+            int rnd = Random.Range(0, 999999999)%20;
             GameObject obj = Instantiate(Playerbullet[rnd], transform.localPosition, transform.localRotation);
             obj.transform.SetParent(spawner.transform, false);
+
+            if (moveSpeed <= 100 && yuriFlag)
+            {
+                HelpYuri();
+            }
             // 1.00秒待つ
             yield return new WaitForSeconds(1.00f);
         }
@@ -40,8 +53,15 @@ public class Player : MonoBehaviour
         {
             Move("RIGHT");
         }
+
     }
 
+    void HelpYuri()
+    {
+        int xx = Random.Range(-600, 601);
+        GameObject obj = Instantiate(yuri, new Vector3(xx, 600, 0),Quaternion.identity);
+        obj.transform.SetParent(spawner.transform, false);
+    }
 
     // 機体の移動
     void Move(string v)
@@ -66,19 +86,47 @@ public class Player : MonoBehaviour
         {
 
             //PlayerがBulletに当たった時のロジック
-
+            gm.CalScore(2f);
             //当たった玉を消す
             Destroy(c.gameObject);
         }
 
+        if(layerName == "Yuri")
+        {
+            moveSpeed = 300;
+            yuriFlag = false;
+            Destroy(c.gameObject);
+            Debug.Log("YURI!!");
+        }
+
+        if(c.tag == "Wairo")
+        {
+            moveSpeed -= 50;
+            if(moveSpeed <= 50)
+            {
+                moveSpeed = 50;
+            }
+            if(moveSpeed <= 100 && !yuriFlag)
+            {
+                yuriFlag = true;
+            }
+            Destroy(c.gameObject);
+        }
 
 
     }
 
+    public float GetAttackPoint()
+    {
+        return attackPoint;
+    }
 
 
     void InitPlayer()
     {
+        moveSpeed = 300.0f;
+        yuriFlag = true;
+        gm = GameObject.Find("GameManager").GetComponent<GameManagement>();
         this.transform.localPosition = new Vector2(0, -380);
     }
 

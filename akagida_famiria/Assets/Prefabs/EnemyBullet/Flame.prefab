@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 763272394121417570}
   - component: {fileID: 763272394121417569}
   - component: {fileID: 763272394121417568}
-  - component: {fileID: 8851641985955970130}
   - component: {fileID: 8410188953243415542}
+  - component: {fileID: -5748403431952050731}
   m_Layer: 9
   m_Name: Flame
   m_TagString: Word
@@ -104,19 +104,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 31.124405, y: 86.51355}
   m_EdgeRadius: 0
---- !u!114 &8851641985955970130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763272394121417574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d462f7529a5386c4887ae8542ff4b531, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: -10
 --- !u!50 &8410188953243415542
 Rigidbody2D:
   serializedVersion: 4
@@ -138,3 +125,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 1
+--- !u!114 &-5748403431952050731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763272394121417574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96d0651825bfbde4c837314d26c1ef04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: -10

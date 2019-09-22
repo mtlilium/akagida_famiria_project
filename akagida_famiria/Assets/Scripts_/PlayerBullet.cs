@@ -2,7 +2,13 @@
 
 public class PlayerBullet : MonoBehaviour
 {
-    public float speed = 20;
+    private float speed = 10;
+    private GameManagement gm;
+
+    private void Awake()
+    {
+        gm = GameObject.Find("GameManager").GetComponent<GameManagement>();
+    }
     void Start()
     {
     }
@@ -19,9 +25,6 @@ public class PlayerBullet : MonoBehaviour
         if(this.transform.localPosition.y >= 1200)
         {
             Destroy(this.gameObject); //PlayerBullet
-        }else if(this.transform.localPosition.y <= -600)
-        {
-            Destroy(this.gameObject); //EnemyBullet
         }
     }
 
