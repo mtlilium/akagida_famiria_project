@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    float moveSpeed = 300.0f;
+    float moveSpeed;
     float xLimit = 640.0f;
+
+    private float attackPoint = 5.0f;
 
     // PlayerBulletプレハブ
     public GameObject[] Playerbullet;
+    //スポナー
     public GameObject spawner;
+
+    private GameManagement gm;
+
+    public GameObject yuri;
 
     IEnumerator Start()
     {
@@ -18,7 +25,7 @@ public class Player : MonoBehaviour
         while (true)
         {
             // 弾をプレイヤーと同じ位置/角度で作成
-            int rnd = Random.Range(0, 3);
+            int rnd = Random.Range(0, 999999999)%20;
             GameObject obj = Instantiate(Playerbullet[rnd], transform.localPosition, transform.localRotation);
             obj.transform.SetParent(spawner.transform, false);
             // 1.00秒待つ
@@ -39,6 +46,11 @@ public class Player : MonoBehaviour
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             Move("RIGHT");
+        }
+
+        if(moveSpeed <= 100)
+        {
+            Invoke("HelpYuri", 2);
         }
     }
 
@@ -66,19 +78,34 @@ public class Player : MonoBehaviour
         {
 
             //PlayerがBulletに当たった時のロジック
-
+            gm.CalScore(2f);
             //当たった玉を消す
             Destroy(c.gameObject);
         }
 
+        if(c.tag == "Wairo")
+        {
+            moveSpeed -= 50;
+            if(moveSpeed <= 50)
+            {
+                moveSpeed = 50;
+            }
+            Destroy(c.gameObject);
+        }
 
 
     }
 
+    public float GetAttackPoint()
+    {
+        return attackPoint;
+    }
 
 
     void InitPlayer()
     {
+        moveSpeed = 300.0f;
+        gm = GameObject.Find("GameManager").GetComponent<GameManagement>();
         this.transform.localPosition = new Vector2(0, -380);
     }
 
