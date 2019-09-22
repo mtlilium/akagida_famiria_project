@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     float moveSpeed;
     float xLimit = 640.0f;
 
-    private float attackPoint = 2.0f;
+    private float attackPoint = 12.0f;
 
     // PlayerBulletプレハブ
     public GameObject[] Playerbullet;

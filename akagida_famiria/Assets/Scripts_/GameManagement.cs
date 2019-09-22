@@ -24,6 +24,7 @@ public class GameManagement : MonoBehaviour
 
     //PauseUI
     public GameObject pauseUI;
+    public GameObject pauseButtonText;
 
     // Start is called before the first frame update
     void Start()
@@ -51,10 +52,18 @@ public class GameManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Mathf.Approximately(Time.timeScale, 0f))
+        {
+            return;
+        }
         ShowScore();
         if (enemy.GetComponent<Enemy>().Defeat() && !pauseUI.gameObject.activeSelf)
         {
             pauseUI.SetActive(true);
+            if (stage >= 3)
+            {
+                pauseButtonText.GetComponent<Text>().text = "RESULT";
+            }
             Time.timeScale = 0f;
         }
     }
@@ -65,7 +74,14 @@ public class GameManagement : MonoBehaviour
         
 
         stage++;
-        SceneManager.LoadScene("TakayamaDebug");
+        if (stage < 4)
+        {
+            SceneManager.LoadScene("TakayamaDebug");
+        }
+        else
+        {
+            SceneManager.LoadScene("ResultScene");
+        }
     }
     public void CalScore(float num)
     {
